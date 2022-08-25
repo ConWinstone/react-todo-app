@@ -3,7 +3,6 @@ import TodosList from './TodosList'
 import Header from './Header'
 import InputTodo from './InputTodo'
 
-const idMax = parseInt(localStorage.getItem('id'))
 function getInitialTodos() {
   // getting stored items
   const temp = localStorage.getItem('todos')
