@@ -1,6 +1,10 @@
 import React from 'react'
 import TodoItem from './TodoItem'
 class TodosList extends React.Component {
+  componentWillUnmount() {
+    console.log('Cleaning up...')
+  }
+
   render(props) {
     return (
       <ul>

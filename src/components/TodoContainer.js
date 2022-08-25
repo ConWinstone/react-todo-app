@@ -6,23 +6,24 @@ import InputTodo from './InputTodo'
 let idMax = 4
 class TodoContainer extends React.Component {
   state = {
-    todos: [
-      {
-        id: 1,
-        title: 'Setup development environment',
-        completed: true,
-      },
-      {
-        id: 2,
-        title: 'Develop website and add content',
-        completed: false,
-      },
-      {
-        id: 3,
-        title: 'Deploy to live server',
-        completed: false,
-      },
-    ],
+    todos: [],
+  }
+
+  componentDidMount() {
+    const temp = localStorage.getItem('todos')
+    const loadedTodos = JSON.parse(temp)
+    if (loadedTodos) {
+      this.setState({
+        todos: loadedTodos,
+      })
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.todos !== this.state.todos) {
+      const temp = JSON.stringify(this.state.todos)
+      localStorage.setItem('todos', temp)
+    }
   }
 
   handleChange = (id) => {
