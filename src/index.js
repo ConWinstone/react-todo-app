@@ -9,6 +9,7 @@ import Navbar from './components/Navbar'
 import './App.css'
 import NotMatch from './Pages/NotMatch'
 import About from './Pages/About'
+import SinglePage from './Pages/SinglePage'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<TodoContainer />} />
         <Route path="/about" element={<About />} />
+        <Route path="/about/:slug" element={<SinglePage />} />
         <Route path="/*" element={<NotMatch />} />
       </Routes>
     </Router>
