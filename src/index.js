@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 //component file
 import TodoContainer from './components/TodoContainer'
+import Navbar from './components/Navbar'
 
 //stylesheet
 import './App.css'
@@ -12,6 +13,7 @@ import About from './Pages/About'
 ReactDOM.render(
   <React.StrictMode>
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<TodoContainer />} />
         <Route path="/about" element={<About />} />
