@@ -4,6 +4,8 @@ import TodosList from './TodosList'
 import Header from './Header'
 import InputTodo from './InputTodo'
 
+import { v4 as uuidv4 } from 'uuid'
+
 function getInitialTodos() {
   // getting stored items
   const temp = localStorage.getItem('todos')
@@ -12,10 +14,6 @@ function getInitialTodos() {
 }
 
 const TodoContainer = () => {
-  const idMax = parseInt(localStorage.getItem('id'))
-  const updateId = (id) => {
-    localStorage.setItem('id', parseInt(id) + 1)
-  }
   const [todos, setTodos] = useState(getInitialTodos())
 
   const handleChange = (id) => {
@@ -42,12 +40,11 @@ const TodoContainer = () => {
 
   const addTodoItem = (title) => {
     const newTodo = {
-      id: idMax,
+      id: uuidv4(),
       title: title,
       completed: false,
     }
     setTodos([...todos, newTodo])
-    updateId(newTodo.id)
   }
 
   const setUpdate = (updatedTitle, id) => {
