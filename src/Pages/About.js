@@ -1,23 +1,17 @@
 import React from 'react'
-import { Routes, Route, Link, useParams } from 'react-router-dom'
-
-import SinglePage from './SinglePage'
+import { NavLink } from 'react-router-dom'
 
 export default function About() {
-  console.log(useParams())
   return (
-    <div>
-      <ul>
+    <div className="about__content">
+      <ul className="about__list">
         <li>
-          <Link to="about-app">About App</Link>
+          <NavLink to="about-app">About App</NavLink>
         </li>
         <li>
-          <Link to="about-author">About Author</Link>
+          <NavLink to="about-author">About Author</NavLink>
         </li>
       </ul>
-      <Routes>
-        <Route path="/:slug" element={<SinglePage />} />
-      </Routes>
     </div>
   )
 }
